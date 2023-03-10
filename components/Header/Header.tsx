@@ -1,27 +1,31 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { SlMenu } from 'react-icons/sl';
+import BoxNotification from '../BoxNotification/BoxNotification';
 import NavBar from './NavBar';
 import Search from './Search';
-import {GiMoebiusTriangle} from 'react-icons/gi'
 
 const Header = () => {
+    const [isOpenBoxSearch, setIsOpenBoxSearch] = useState(false);
+
+
     return (
-        <div className=' fixed top-0 left-0 right-0 bg-bg-header-light px-4'>
+        <div className='fixed top-0 left-0 right-0 bg-bg-header-light px-4 shadow-sm'>
             <div className='flex items-center justify-between py-1'>
                 <div className='flex items-center gap-3'>
                     <span className=' lg:hidden text-hover duration-500 cursor-pointer text-base'><SlMenu /></span>
                     <Link href='/' className='flex items-center gap-2'>
                         <div className='w-10 h-10  md:w-14 md:h-14 '>
-                            <img src="https://cdn-icons-png.flaticon.com/512/2116/2116747.png" alt="" className='image-cover' />
+                            <img src='https://cdn-icons-png.flaticon.com/512/9940/9940550.png' alt="" className='image-cover' />
                             {/* <span><GiMoebiusTriangle size={30}/></span> */}
                         </div>
-                        <h1 className='text-3xl hidden sm:block text-orange'>SocialV</h1>
+                        <h1 className='text-3xl hidden sm:block text-orange-light'>SocialV</h1>
                     </Link>
                     <span className=' hidden lg:block text-hover duration-500 cursor-pointer text-base'><SlMenu /></span>
                 </div>
-                <div className='hidden lg:block w-[24%]'>
+                <div className='hidden lg:block w-[24%] relative' >
                     <Search />
+                    {isOpenBoxSearch && <BoxNotification />}
                 </div>
                 <div className='flex gap-6 items-center'>
                     <div className='hidden lg:block'>
@@ -44,7 +48,10 @@ const Header = () => {
             <div className='border-t p-2 w-full lg:hidden'>
                 <NavBar />
             </div>
+          
+
         </div>
+        
     )
 }
 

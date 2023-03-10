@@ -3,10 +3,18 @@
 @tailwind utilities;
 
 
-
 @layer base {
     body{
         @apply bg-bg-body-light;
+    }
+    body::-webkit-scrollbar {
+        @apply w-[8px] h-[10px] ;
+    }
+    body::-webkit-scrollbar-track{
+        @apply bg-[#F1F2F3] rounded-full;
+    }
+    body::-webkit-scrollbar-thumb {
+        @apply bg-[#5E5E5F] rounded-full ;
     }
 }
 
@@ -17,4 +25,31 @@
     .image-cover{
         @apply w-full h-full object-cover
     }
+    .scrollBar::-webkit-scrollbar {
+        @apply w-[8px] h-[10px] ;
+    }
+    .scrollBar::-webkit-scrollbar-track{
+        @apply bg-[#424242] rounded-full;
+    }
+    .scrollBar::-webkit-scrollbar-thumb {
+        @apply bg-[#5E5E5F] rounded-full ;
+    }
 }
+
+
+@keyframes jump
+{
+    0%
+    {
+        transform: translateY(0px);
+        opacity: 0;
+    }
+    20%
+    {
+        transform: translateY(-15px);
+    }
+    40%, 100%
+    {
+        transform: translateY(0px);
+    }
+ }
