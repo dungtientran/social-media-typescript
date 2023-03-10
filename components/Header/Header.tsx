@@ -7,8 +7,6 @@ import Search from './Search';
 
 const Header = () => {
     const [isOpenBoxSearch, setIsOpenBoxSearch] = useState(false);
-
-
     return (
         <div className='fixed top-0 left-0 right-0 bg-bg-header-light px-4 shadow-sm'>
             <div className='flex items-center justify-between py-1'>
@@ -32,7 +30,7 @@ const Header = () => {
                         <NavBar />
                     </div>
                     <div title='Tài khoản' className='flex items-center gap-1 cursor-pointer'>
-                        <div className=' w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden '>
+                        <div className='w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden '>
                             <img
                                 src="https://scontent.fhan17-1.fna.fbcdn.net/v/t39.30808-6/326208745_815142056740560_3310644866093694202_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=_v4wVhMKGcIAX_PrznR&_nc_ht=scontent.fhan17-1.fna&oh=00_AfACehk649YwOS8jagfuhLwQ87SQfA_bs4Mkk9g3mbTwbw&oe=6410317F"
                                 alt=""
