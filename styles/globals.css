@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+@layer base {
+    body{
+        @apply bg-bg-body-light;
+    }
+}
+
+@layer components {
+    .text-hover{
+        @apply hover:text-orange;
+    }
+    .image-cover{
+        @apply w-full h-full object-cover
+    }
+}
