@@ -1,29 +1,56 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import { listeners } from 'process';
+import React, { useEffect, useRef, useState } from 'react';
 import { SlMenu } from 'react-icons/sl';
-import BoxNotification from '../BoxNotification/BoxNotification';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { openBoxSearch } from '../../store/reducers/boxJumpReducer';
+import BoxJump from '../BoxJump/BoxJump';
+import HamburgerBtn from './HamburgerBtn';
 import NavBar from './NavBar';
 import Search from './Search';
 
 const Header = () => {
-    const [isOpenBoxSearch, setIsOpenBoxSearch] = useState(false);
+    const [isOpenSideBar, setIsOpenSideBar] = useState(false);
+    const dispatch = useAppDispatch();
+    const { isOpenBoxSearch } = useAppSelector(state => state.boxNotification)
+    const searchtRef = React.useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+
+        let hadleClickOusideDot = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+            if (!searchtRef?.current?.contains(e.target as any)) {
+                dispatch(openBoxSearch(false))
+            }
+        }
+        window.addEventListener('mousedown', hadleClickOusideDot as any)
+        return () => {
+            document.removeEventListener('mousedown', hadleClickOusideDot as any)
+        }
+    }, []);
+
     return (
-        <div className='fixed top-0 left-0 right-0 bg-bg-header-light px-4 shadow-sm'>
+        <div className='fixed top-0 left-0 right-0 bg-bg-header-light px-4 shadow-sm z-20'>
             <div className='flex items-center justify-between py-1'>
                 <div className='flex items-center gap-3'>
-                    <span className=' lg:hidden text-hover duration-500 cursor-pointer text-base'><SlMenu /></span>
+                    <div className='lg:hidden' onClick={() => setIsOpenSideBar(!isOpenSideBar)}>
+                        <HamburgerBtn isOpen={isOpenSideBar} />
+                    </div>
                     <Link href='/' className='flex items-center gap-2'>
-                        <div className='w-10 h-10  md:w-14 md:h-14 '>
+                        <div className='w-12 h-12  md:w-14 md:h-14 '>
                             <img src='https://cdn-icons-png.flaticon.com/512/9940/9940550.png' alt="" className='image-cover' />
                             {/* <span><GiMoebiusTriangle size={30}/></span> */}
                         </div>
                         <h1 className='text-3xl hidden sm:block text-orange-light'>SocialV</h1>
                     </Link>
-                    <span className=' hidden lg:block text-hover duration-500 cursor-pointer text-base'><SlMenu /></span>
+                    <div className='hidden lg:block' onClick={() => setIsOpenSideBar(!isOpenSideBar)} >
+                        <HamburgerBtn isOpen={isOpenSideBar} />
+                    </div>
                 </div>
-                <div className='hidden lg:block w-[24%] relative' >
-                    <Search />
-                    {isOpenBoxSearch && <BoxNotification />}
+                <div className='w-[24%] lg:relative' ref={searchtRef}>
+                    <div className='hidden lg:block' onClick={() => dispatch(openBoxSearch(true))}>
+                        <Search />
+                    </div>
+                    {isOpenBoxSearch && <BoxJump keyBox='search' />}
                 </div>
                 <div className='flex gap-6 items-center'>
                     <div className='hidden lg:block'>
@@ -46,10 +73,10 @@ const Header = () => {
             <div className='border-t p-2 w-full lg:hidden'>
                 <NavBar />
             </div>
-          
+
 
         </div>
-        
+
     )
 }
 

@@ -34,7 +34,131 @@
     .scrollBar::-webkit-scrollbar-thumb {
         @apply bg-[#5E5E5F] rounded-full ;
     }
+    .btn-open-sidebar {
+        @apply w-[18px] h-[20px] flex items-center justify-center cursor-pointer;
+    }
+    .btn-open-sidebar:hover .btn-line-open-sidebar {
+        @apply bg-orange duration-500
+    }
+    .btn-line-open-sidebar {
+        @apply w-full h-[2px] bg-black absolute left-0 rounded-lg duration-500;
+    }
+    .line-one {
+        @apply  top-[4px];
+    }
+    .line-two  {
+        @apply  top-[50%] translate-y-[-50%];
+    }
+    .line-three {
+        @apply  bottom-[4px];
+    }
+    .line-one-active {
+        @apply  top-[50%] translate-y-[-50%] rotate-[45deg];
+    }
+    .line-two-active {
+        @apply  top-[50%] translate-y-[-50%] left-[-100%] opacity-0;
+    }
+    .line-three-active {
+        @apply  top-[50%] translate-y-[-50%] rotate-[-45deg];
+    }
 }
+
+.menu{
+    width: 100%;
+    margin-top: 80px;
+}
+.menu .item{
+    position: relative;
+    cursor: pointer;
+}
+.menu .item a {
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    display: block;
+    padding: 5px 30px;
+    line-height: 60px;
+}
+
+.menu .item a:hover{
+    background-color: #8621f8;
+    transition: 0.3s ease;
+}
+.menu .item a .dropdown {
+    position: absolute;
+    right: 0;
+
+    margin-right: 15px;
+    transition: 0.3s ease;
+}
+.menu .item .sub-item{
+    background: rgba(255,255,255,0.1);
+}
+.menu .item .sub-menu a {
+    padding-left: 80px;
+}
+
+
+aside {
+    background-color: #000d33;
+}
+aside ul {
+    padding:  5px 0 5px 30px;
+}
+
+aside ul li {
+    list-style: none;
+    font-weight: bold;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    max-height: 35px;
+    line-height: 35px;
+    transition: 1s;
+    text-transform: capitalize;
+}
+aside ul li:hover {
+    background-color: #d1d1d173;
+}
+aside ul li a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+aside ul li > ul {
+    padding: 1px;
+    margin: 0 0 0 20px;
+}
+aside ul li > ul li {
+    height: 25px;
+    line-height: 20px;
+    font-size: 15px;
+    padding: 1px 1px 1px 20px;
+    font-weight: normal;
+    border-left: 1px solid #fff0f0;
+    margin: 5px;
+    color: #fff0f0;
+    cursor: pointer;
+}
+aside ul li > ul li a, 
+aside ul li:target > ul li a {
+    background: transparent;
+}
+aside ul li:target {
+    max-height: 300px;
+    border-radius: 5px 0px 0px 5px;
+
+}
+aside ul li:target a {
+    color:  #444;
+    display: inherit;
+    background: white;
+}
+aside ul li:target:hover{
+    background: inherit;
+}
+
+
 
 
 @keyframes jump

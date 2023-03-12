@@ -4,7 +4,7 @@ import {AiOutlineSearch} from 'react-icons/ai';
 
 const Search = () => {
   const [searchText, setSearchText] = useState();
-
+ 
   return (
     <div className='w-full relative'>
         <input 
