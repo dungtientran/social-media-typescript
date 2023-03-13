@@ -36,20 +36,20 @@ const SideBarLeft = () => {
   const [isOpenSubMenu, setIsOpenSubMenu] = useState(false)
 
   return (
-    <div className='fixed top-0 left-0 mt-[64px] bottom-0 w-[15%] bg-black p-3 text-[#777D74]'>
+    <div className='fixed top-0 left-0 mt-[64px] bottom-0 w-[70px] bg-bg-header-light p-3 text-[#777D74]'>
       <div >
 
-        {/* <h2 className='tracking-normal uppercase'>Social</h2>
+        <h2 className='tracking-normal uppercase'>Social</h2>
         <ul className='space-y-5 p-3 cursor-pointer'>
           {social?.map((item, index) => (
             <li title={item?.name} key={index} className='hover:text-orange duration-1000' onClick={() => setIsOpenSubMenu(!isOpenSubMenu)}>
               <div className='flex items-center justify-between'>
                 <div className='flex items-center gap-3'>
                   <span>{item?.icon}</span>
-                  <span className='font-semibold'>{item?.name}</span>
+                  <span className='font-semibold hidden'>{item?.name}</span>
                 </div>
                 {item?.subName && (
-                  <span ><IoIosArrowForward /></span>
+                  <span className='hidden'><IoIosArrowForward /></span>
                 )}
               </div>
               {item?.subName && (
@@ -63,51 +63,9 @@ const SideBarLeft = () => {
               )}
             </li>
           ))}
-        </ul> */}
+        </ul>
 
-        <h2 className='tracking-normal uppercase'>Social</h2>
-        <aside>
-
-
-
-
-          {social?.map((item, index) => (
-            <ul className=''>
-              <li title={item?.name} key={index} className='' onClick={() => setIsOpenSubMenu(!isOpenSubMenu)}>
-                {/* <div className='flex items-center justify-between'>
-                <div className='flex items-center gap-3'>
-                  <span>{item?.icon}</span>
-                  <span className='font-semibold'>{item?.name}</span>
-                </div>
-                {item?.subName && (
-                  <span ><IoIosArrowForward /></span>
-                )}
-              </div> */}
-
-                <a href="#" className=''>
-                  <span className=''>icon</span>
-                  <span className=''>{item?.name}</span>
-                  {item?.subName && (
-                    <span className=''>-v</span>
-                  )}
-                </a>
-
-
-                {item?.subName && (
-                  <ul >
-                    {item?.subName?.map((item, index) => (
-                      <li title={item} key={index} className=''>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-
-              </li>
-            </ul>
-          ))}
-        </aside>
-
+    
 
       </div>
 

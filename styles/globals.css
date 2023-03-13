@@ -61,7 +61,31 @@
     .line-three-active {
         @apply  top-[50%] translate-y-[-50%] rotate-[-45deg];
     }
+    .nav-item-1 {
+        @apply hidden
+    }
+   
 }
+
+/* .nav-item-1{
+    display: none;
+} */
+
+.boxtJump {
+    position: absolute;
+    transition: 0.7s;
+    opacity: 0;
+    visibility: hidden;
+    margin-top: 25px;
+}
+.boxtJump-active{
+    position: absolute;
+    opacity: 1;
+    visibility: visible;
+    margin-top: 0 ;
+}
+
+
 
 .menu{
     width: 100%;

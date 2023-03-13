@@ -9,7 +9,7 @@ interface BoxJumpProps {
 const BoxJump = ({keyBox}: BoxJumpProps) => {
     const dispatch = useAppDispatch();
     return (
-        <div className='w-full h-screen lg:min-h-[300px] lg:max-h-[380px] animate-jumpDown shadow-md rounded-lg absolute top-0 lg:top-full mt-3 left-0 right-0 bg-bg-header-light z-30'>
+        <div className='w-full h-screen lg:min-h-[300px] lg:max-h-[380px] animate-jumpDown shadow-md rounded-lg absolute top-0 lg:top-full left-0 right-0 bg-bg-header-light z-50'>
            {keyBox === 'search' &&  <BoxSearch />}
         </div>
     )

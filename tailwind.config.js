@@ -19,16 +19,17 @@ module.exports = {
       keyframes: {
         jumpDown: {
           '0%': {
-            transform: 'translateY(-150%)',
+            transform: 'translateY(-20%)',
+            opacity: '0'
           },
           '100%': {
             transform: 'translateY(0)',
-          
+            opacity: '1'
           }
         }
       },
       animation: {
-        jumpDown: 'jumpDown 0.5s ease-in-out 1'
+        jumpDown: 'jumpDown 0.2s ease-in-out 1'
       }
     },
   },
