@@ -1,24 +1,24 @@
 import Link from 'next/link';
-import { listeners } from 'process';
-import React, { useEffect, useRef, useState } from 'react';
-import { SlMenu } from 'react-icons/sl';
+import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { openBoxSearch } from '../../store/reducers/boxJumpReducer';
+import { openSideBar } from '../../store/reducers/sideBarLeft';
 import BoxJump from '../BoxJump/BoxJump';
 import HamburgerBtn from './HamburgerBtn';
 import NavBar from './NavBar';
 import Search from './Search';
 
 const Header = () => {
-    const [isOpenSideBar, setIsOpenSideBar] = useState(false);
-    const dispatch = useAppDispatch();
-    const { isOpenBoxSearch } = useAppSelector(state => state.boxNotification)
-    const searchtRef = React.useRef<HTMLDivElement>(null);
 
+    const dispatch = useAppDispatch();
+    const { isOpenBoxSearch } = useAppSelector(state => state.boxNotification);
+    const { isOpenSideBar } = useAppSelector(state => state.sideBarLeft);
+    const searchtRef = React.useRef<HTMLDivElement>(null);
+    
     useEffect(() => {
 
-        let hadleClickOusideDot = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-            if (!searchtRef?.current?.contains(e.target as any)) {
+        let hadleClickOusideDot = (e: React.MouseEvent<HTMLDivElement>):void => {
+            if (!searchtRef?.current?.contains(e.target)) {
                 dispatch(openBoxSearch(false))
             }
         }
@@ -32,7 +32,7 @@ const Header = () => {
         <div className='fixed top-0 left-0 right-0 bg-bg-header-light px-4 shadow-sm z-20'>
             <div className='flex items-center justify-between py-1'>
                 <div className='flex items-center gap-3'>
-                    <div className='lg:hidden' onClick={() => setIsOpenSideBar(!isOpenSideBar)}>
+                    <div className='lg:hidden' onClick={() => dispatch(openSideBar(!isOpenSideBar))}>
                         <HamburgerBtn isOpen={isOpenSideBar} />
                     </div>
                     <Link href='/' className='flex items-center gap-2'>
@@ -42,7 +42,7 @@ const Header = () => {
                         </div>
                         <h1 className='text-3xl hidden sm:block text-orange-light'>SocialV</h1>
                     </Link>
-                    <div className='hidden lg:block' onClick={() => setIsOpenSideBar(!isOpenSideBar)} >
+                    <div className='hidden lg:block' onClick={() => dispatch(openSideBar(!isOpenSideBar))} >
                         <HamburgerBtn isOpen={isOpenSideBar} />
                     </div>
                 </div>
@@ -73,10 +73,7 @@ const Header = () => {
             <div className='border-t p-2 w-full lg:hidden'>
                 <NavBar />
             </div>
-
-
         </div>
-
     )
 }
 

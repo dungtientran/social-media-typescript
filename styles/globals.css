@@ -64,12 +64,18 @@
     .nav-item-1 {
         @apply hidden
     }
-   
+    .story-item {
+        @apply flex flex-col items-center justify-between text-[#909090] gap-2 w-[12%] hover:text-white cursor-pointer ;
+    }
 }
 
 /* .nav-item-1{
     display: none;
 } */
+/* .sidebar-left {
+    transition: 1s;
+} */
+
 
 .boxtJump {
     position: absolute;

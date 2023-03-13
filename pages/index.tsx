@@ -2,14 +2,69 @@
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 import { NextPage } from 'next';
+import Story from '../components/Story/Story';
+import CreatePost from '../components/Posts/CreatePost';
 
 const inter = Inter({ subsets: ['latin'] })
 
-const  Home:NextPage = () => {
+
+const listStory = [
+  {
+    image: 'https://res.cloudinary.com/dbkgkyh4h/image/upload/v1674980785/aztdhoncs6wzqlbb7tqz.jpg',
+    name: 'Vy Khánh'
+  },
+  {
+    image: 'https://res.cloudinary.com/dbkgkyh4h/image/upload/v1674980785/aztdhoncs6wzqlbb7tqz.jpg',
+    name: 'Vy Khánh'
+  },
+  {
+    image: 'https://res.cloudinary.com/dbkgkyh4h/image/upload/v1674980785/aztdhoncs6wzqlbb7tqz.jpg',
+    name: 'Vy Khánh'
+  },
+  {
+    image: 'https://res.cloudinary.com/dbkgkyh4h/image/upload/v1674980785/aztdhoncs6wzqlbb7tqz.jpg',
+    name: 'Vy Khánh'
+  },
+  {
+    image: 'https://res.cloudinary.com/dbkgkyh4h/image/upload/v1674980785/aztdhoncs6wzqlbb7tqz.jpg',
+    name: 'Vy Khánh'
+  },
+  {
+    image: 'https://res.cloudinary.com/dbkgkyh4h/image/upload/v1674980785/aztdhoncs6wzqlbb7tqz.jpg',
+    name: 'Vy Khánh'
+  },
+  {
+    image: 'https://res.cloudinary.com/dbkgkyh4h/image/upload/v1674980785/aztdhoncs6wzqlbb7tqz.jpg',
+    name: 'Vy Khánh'
+  },
+  {
+    image: 'https://res.cloudinary.com/dbkgkyh4h/image/upload/v1674980785/aztdhoncs6wzqlbb7tqz.jpg',
+    name: 'Vy Khánh'
+  },
+
+]
+
+const Home: NextPage = () => {
   return (
-    <>
-     <h1>HomePag</h1>
-    </>
+    <div className='h-full'>
+      {/* Story */}
+      <div className='p-3'>
+        <Story listStory={listStory} />
+      </div>
+
+      <div className='flex h-screen'>
+        <div className='w-3/4 h-full p-3'>
+          <CreatePost user={{avatar:'sss', name: 'Trần Dũng' }} />
+
+        </div>
+        <div className='w-1/4 h-full p-3'>
+          <div className='bg-bg-header-light h-full p-3 rounded-md' >
+            event
+          </div>
+        </div>
+      </div>
+
+    </div>
   )
 }
 

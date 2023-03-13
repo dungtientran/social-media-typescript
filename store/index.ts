@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import boxNotificationReducer from './reducers/boxJumpReducer';
+import sideBarLeftReducer from './reducers/sideBarLeft';
 
 
 export const store = configureStore({
   reducer: {
     boxNotification: boxNotificationReducer,
+    sideBarLeft: sideBarLeftReducer
   },
 })
 

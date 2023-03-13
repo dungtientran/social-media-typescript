@@ -14,7 +14,9 @@ module.exports = {
         'text-light': '#FCEAE6',
         'orange-light': '#E04324',
         'orange-hover-light': '#DD391E',
-        'border-rgba': 'rgba(112, 112, 114, 0.15)'
+        'border-rgba': 'rgba(112, 112, 114, 0.15)',
+        'black-rgba': 'rgba(0, 0, 0, 0.7)',
+
       },
       keyframes: {
         jumpDown: {
