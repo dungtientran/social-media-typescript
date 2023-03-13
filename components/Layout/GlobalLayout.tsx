@@ -21,7 +21,7 @@ const GlobalLayout = ({ children }: GlobalLayoutProps) => {
         {isOpenBoxSearch && <BoxNotification />}
       </div> */}
 
-      <div className='mt-[78px] h-screen hidden lg:block'>
+      <div className='mt-[64px] h-screen hidden lg:block'>
         <SideBarLeft />
         <main className='w-[55%] m-auto'>
           {children}

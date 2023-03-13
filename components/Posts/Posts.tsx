@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+
+const listImage = []
 
 const Posts = () => {
     return (
-        <div>
+        <div className='p-3'>
             Posts
+
+
         </div>
     )
 }

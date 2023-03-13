@@ -55,10 +55,13 @@ const NavBar = () => {
     //         document.removeEventListener('mousedown', hadleClickOusideDot as any)
     //     }
     // }, []);
-    const handleClickNavItem = (item: string | undefined) => {
+    const handleClickNavItem = (item: string | undefined, index:number) => {
         if (item) {
             router.push(item)
-        } 
+        }
+         if(index === 1) {
+            dispatch(openBoxSearch(true))
+         }
     }
 
     return (
@@ -79,7 +82,7 @@ const NavBar = () => {
 
             {nav?.map((item, index) => (
                 <li
-                    onClick={() => handleClickNavItem(item?.patch)}
+                    onClick={() => handleClickNavItem(item?.patch, index)}
                     key={index} title={item?.title}
                     className={`cursor-pointer relative text-orange-light text-hover ${index === 1 && 'lg:hidden'}`}
                     ref={notifyRef}

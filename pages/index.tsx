@@ -4,6 +4,8 @@ import styles from '@/styles/Home.module.css';
 import { NextPage } from 'next';
 import Story from '../components/Story/Story';
 import CreatePost from '../components/Posts/CreatePost';
+import Events from '../components/Events/Events';
+import Posts from '../components/Posts/Posts';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -55,12 +57,10 @@ const Home: NextPage = () => {
       <div className='flex h-screen'>
         <div className='w-3/4 h-full p-3'>
           <CreatePost user={{avatar:'sss', name: 'Trần Dũng' }} />
-
+          <Posts />
         </div>
         <div className='w-1/4 h-full p-3'>
-          <div className='bg-bg-header-light h-full p-3 rounded-md' >
-            event
-          </div>
+          <Events />
         </div>
       </div>
 
